@@ -74,7 +74,7 @@
             addSection() {
                 var sectionInfo = _.cloneDeep(FORM_CONSTANTS.Section);
                 // set uniqueID
-                sectionInfo.name = _.uniqueId('section_');
+                sectionInfo.name = _.domUniqueID('section_');
                 sectionInfo.clientKey = sectionInfo.name;
 
                 this.form.sections.push(sectionInfo);
@@ -114,7 +114,7 @@
                 var rowInfo = _.cloneDeep(FORM_CONSTANTS.Row);
 
                 // general row_name (id)
-                rowInfo.name = _.uniqueId(this.form.sections[secIndex].name + '_row_');
+                rowInfo.name = _.domUniqueID(this.form.sections[secIndex].name + '_row_');
 
                 this.form.sections[secIndex].rows.push(rowInfo);
             },

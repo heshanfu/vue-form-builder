@@ -112,7 +112,10 @@
                     </tbody>
                 </table>
                 <div class="form-group" v-else>
-                    <label>Ajax URL <i class="fa fa-info-circle clickable" @click="dataAjaxModal"></i></label>
+                    <label>
+                        Ajax URL
+                        <a href="javascript:void(0)" @click="dataAjaxModal"><i class="fa fa-info-circle"></i></a>
+                    </label>
                     <input type="text" class="form-control" v-model="control.ajaxDataUrl">
                 </div>
             </div>
@@ -178,6 +181,7 @@
                 this.control.dataOptions.splice(index, 1);
             },
             dataAjaxModal(e) {
+                console.log(e);
                 this.$refs.SelectAjaxModal.openModal();
             }
         },

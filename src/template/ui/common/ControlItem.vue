@@ -37,10 +37,6 @@
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
 
-    // load timepicker
-    require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
-    require('sethFormBuilder/assets/js/jquery-ui-timepicker-addon');
-
     export default {
         name: "control-item",
         components: {FontAwesomeIcon},

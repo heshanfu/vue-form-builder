@@ -28,6 +28,10 @@
     require('webpack-jquery-ui');
     require('webpack-jquery-ui/css');
 
+    // load timepicker
+    require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
+    require('sethFormBuilder/assets/js/jquery-ui-timepicker-addon');
+
     // load bootstrap
     require('popper.js');
     require('bootstrap');
@@ -80,7 +84,13 @@
                     _uniqueId: Math.random()
                 })
             },
-            value: null
+            value: null,
+            options: {
+                type: Object,
+                default: () => ({
+                    hooks: []
+                })
+            }
         },
         watch: {
             form: {

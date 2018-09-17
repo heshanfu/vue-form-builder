@@ -33,3 +33,17 @@ _.accessStr = function (o, s) {
     }
     return o;
 };
+
+/**
+ * Generate a true UNIQUE ID (check dom too)
+ * @param prefix
+ * @returns {*}
+ */
+_.domUniqueID = function (prefix) {
+    var id = prefix + _.random(0, 999999);
+    if ($('#' + id).length > 0) {
+        return _.domUniqueID(prefix);
+    }
+
+    return id;
+};

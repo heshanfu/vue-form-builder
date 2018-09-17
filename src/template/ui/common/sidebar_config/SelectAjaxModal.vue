@@ -11,7 +11,7 @@
 
                 <!-- Modal body -->
                 <div class="modal-body">
-                    <p>Your URL data for Ajax must return a JSON string, array like this:</p>
+                    <p>Your URL for Ajax Request must return a JSON string, array like this:</p>
                     <pre><code>{{demoData}}</code></pre>
                     <p>Or like this:</p>
                     <pre><code>{{demoData2}}</code></pre>
@@ -50,5 +50,9 @@
 </script>
 
 <style scoped>
-
+    pre {
+        background-color: black;
+        color: white;
+        padding: 10px;
+    }
 </style>

@@ -25,24 +25,17 @@
                 this.control.value = this.control.defaultValue;
             }
         },
+        watch: {
+            "control.value": function (val) {
+                if (this.control.isInteger === false) {
+                    this.control.value = parseFloat(val).toFixed(this.control.decimalPlace);
+                } else {
+                    this.control.value = parseInt(val);
+                }
+            }
+        },
         computed: {
             controlStep() {
-                if (!this.control.isInteger) {
-                    var step = 1;
-
-                    // calculate the step by decimal place
-                    if (this.control.decimalPlace > 0) {
-                        step = "0.";
-                        for (var i = 1; i < this.control.decimalPlace; i++) {
-                            step += "0";
-                        }
-                        step += "1";
-                    }
-
-                    // generate
-                    return parseFloat(step);
-                }
-
                 return 1;
             }
         }

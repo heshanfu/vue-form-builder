@@ -24,9 +24,6 @@
 <script>
     import {FORM_CONSTANTS} from "sethFormBuilder/config/constants";
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
-    // load timepicker
-    import 'timepicker/jquery.timepicker.min.css';
-    import 'timepicker/jquery.timepicker.min'
 
     export default {
         name: "TimePickerControl",

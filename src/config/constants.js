@@ -1,6 +1,7 @@
 import { faEdit, faCalculator, faCalendarAlt, faClock, faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons'
 
 var FORM_CONSTANTS = {};
+var CONTROL_CONSTANTS = {};
 
 FORM_CONSTANTS.SectionLayout = {
   collapse: "Collapse",
@@ -50,7 +51,7 @@ FORM_CONSTANTS.Control = {
 
     // attr for datePicker
     isTodayValue: false,
-    dateFormat: "", // enhancement later
+    dateFormat: "dd/mm/yy",
 
     // attr for timePicker
     isNowTimeValue: false,
@@ -58,7 +59,9 @@ FORM_CONSTANTS.Control = {
 
     // attr for select
     isMultiple: false,
-    dataOptions: [],
+    isAjax: false, // is ajax data source or not
+    dataOptions: [], // static data source
+    ajaxDataUrl: "", // ajax data source
 
     // attr for checkbox
     isChecked: false
@@ -111,6 +114,17 @@ FORM_CONSTANTS.OptionDefault = {
     text: ""
 };
 
+CONTROL_CONSTANTS.DateFormat = {
+    // rule: date picker format => moment format
+    'dd/mm/yy': "D/M/YYYY",
+    'dd-mm-yy': "D-M-YYYY",
+    'mm/dd/yy': "M/D/YYYY",
+    'mm-dd-yy': "M/D/YYYY",
+    'yy/mm/dd': "YYYY/M/D",
+    'yy-mm-dd': "YYYY-M-D",
+};
+
 export {
-  FORM_CONSTANTS
+    FORM_CONSTANTS,
+    CONTROL_CONSTANTS
 }

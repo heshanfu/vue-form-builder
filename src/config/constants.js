@@ -1,4 +1,9 @@
-import { faEdit, faCalculator, faCalendarAlt, faClock, faCheck, faDatabase } from '@fortawesome/free-solid-svg-icons'
+import {faEdit} from '@fortawesome/free-solid-svg-icons/faEdit';
+import {faCalculator} from '@fortawesome/free-solid-svg-icons/faCalculator';
+import {faCalendarAlt} from '@fortawesome/free-solid-svg-icons/faCalendarAlt';
+import {faClock} from '@fortawesome/free-solid-svg-icons/faClock';
+import {faCheck} from '@fortawesome/free-solid-svg-icons/faCheck';
+import {faDatabase} from '@fortawesome/free-solid-svg-icons/faDatabase';
 
 var FORM_CONSTANTS = {};
 var CONTROL_CONSTANTS = {};

@@ -10,8 +10,6 @@
 
 <script>
     // load necessary
-    import Vue from 'vue'
-    import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
     import underscoreDeepExtend from 'underscore-deep-extend';
     import moment from 'moment';
     import {FontAwesomeRegister} from "sethFormBuilder/config/font-awesome-register";
@@ -19,14 +17,14 @@
 
     // load jquery
     if (!window.$) {
-        var $ = require('jquery');
+        let $ = require('jquery');
         window.$ = $;
         window.jQuery = $;
     }
 
     // load jquery ui
-    require('webpack-jquery-ui');
-    require('webpack-jquery-ui/css');
+    import 'webpack-jquery-ui';
+    import 'webpack-jquery-ui/css';
 
     // load timepicker
     require('sethFormBuilder/assets/css/jquery-ui-timepicker-addon.css');
@@ -35,11 +33,10 @@
     // load bootstrap
     require('popper.js');
     require('bootstrap');
-    import 'bootstrap/dist/css/bootstrap.min.css';
+    // import 'bootstrap/dist/css/bootstrap.min.css';
 
     // load font-awesome
     FontAwesomeRegister.register();
-    Vue.component('font-awesome-icon', FontAwesomeIcon);
 
     // load underscore
     if (!window._) {

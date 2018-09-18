@@ -60,7 +60,7 @@ FORM_CONSTANTS.Control = {
 
     // attr for timePicker
     isNowTimeValue: false,
-    timeFormat: "", // enhancement later
+    timeFormat: "HH:mm", // enhancement later
 
     // attr for select
     isMultiple: false,
@@ -127,6 +127,13 @@ CONTROL_CONSTANTS.DateFormat = {
     'mm-dd-yy': "M/D/YYYY",
     'yy/mm/dd': "YYYY/M/D",
     'yy-mm-dd': "YYYY-M-D",
+};
+
+CONTROL_CONSTANTS.TimeFormat = {
+    'H:m': 'H:m',
+    'HH:mm': 'HH:mm',
+    'h:m TT': "h:m A",
+    'hh:mm TT': "hh:mm A"
 };
 
 export {

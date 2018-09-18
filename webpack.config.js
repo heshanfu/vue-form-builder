@@ -106,8 +106,8 @@ module.exports = [
         entry: './src/FormBuilder.vue',
         output: {
             // path: path.resolve(__dirname, './dist'),
-            path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
-            // path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
+            // path: path.resolve(__dirname, '../test-form/node_modules/v-form-builder/dist'),
+            path: path.resolve(__dirname, '../VueProject/test-form/node_modules/v-form-builder/dist'),
             publicPath: '/dist/',
             libraryTarget: 'umd',
             library: 'form-builder',

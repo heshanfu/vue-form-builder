@@ -80,6 +80,9 @@
                     case "datepicker":
                         this.$control.datepicker("option", "dateFormat", controlInfo.dateFormat);
                         break;
+                    case "timepicker":
+                        this.$control.timepicker("option", "timeFormat", controlInfo.timeFormat);
+                        break;
                 }
 
                 // make sure that after re-render, this control still selected in order to update later...
@@ -90,12 +93,16 @@
         },
         mounted() {
             this.$control = $(this.$el).find("input");
+
+            // init special??
             if (this.control.type === 'datepicker') {
                 this.$control.datepicker({
                     dateFormat: this.control.dateFormat
                 });
             } else if (this.control.type === 'timepicker') {
-                this.$control.timepicker();
+                this.$control.timepicker({
+                    timeFormat: this.control.timeFormat
+                });
             }
         },
         computed: {
@@ -116,7 +123,7 @@
                         break;
                     case 'timepicker':
                         if (this.control.isNowTimeValue) {
-                            return moment().format("H:m");
+                            return moment().format(CONTROL_CONSTANTS.TimeFormat[this.control.timeFormat]);
                         }
                         break;
                     case 'number':
@@ -128,6 +135,13 @@
                             return x.toFixed(decimal);
                         }
                 }
+            }
+        },
+        beforeDestroy() {
+            switch (this.control.type) {
+                case "datepicker":
+                    this.$control.datepicker('destroy');
+                    break;
             }
         }
     }

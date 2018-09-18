@@ -130,6 +130,15 @@
             </div>
         </div>
 
+        <div class="row mt-2" v-if="control.type === 'timepicker'">
+            <div class="col-md-12">
+                <div class="form-group">
+                    <label>Time Format</label>
+                    <select2-control :options="timeFormatOptions" v-model="control.timeFormat"></select2-control>
+                </div>
+            </div>
+        </div>
+
         <div class="row mt-2" v-if="control.type !== 'checkbox'">
             <div class="col-md-12">
                 <div class="form-group">
@@ -171,7 +180,8 @@
         },
         data: () => ({
             widthOptions: FORM_CONSTANTS.WidthOptions,
-            dateFormatOptions: []
+            dateFormatOptions: [],
+            timeFormatOptions: [],
         }),
         methods: {
             addOption() {
@@ -181,12 +191,14 @@
                 this.control.dataOptions.splice(index, 1);
             },
             dataAjaxModal(e) {
-                console.log(e);
                 this.$refs.SelectAjaxModal.openModal();
             }
         },
         created() {
             this.dateFormatOptions = _.map(CONTROL_CONSTANTS.DateFormat, (value, key) => {
+                return key;
+            });
+            this.timeFormatOptions = _.map(CONTROL_CONSTANTS.TimeFormat, (value, key) => {
                 return key;
             });
         },

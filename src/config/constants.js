@@ -132,8 +132,8 @@ CONTROL_CONSTANTS.DateFormat = {
 CONTROL_CONSTANTS.TimeFormat = {
     'H:m': 'H:m',
     'HH:mm': 'HH:mm',
-    'h:m TT': "h:m A",
-    'hh:mm TT': "hh:mm A"
+    'h:m p': "h:m A",
+    'hh:mm p': "hh:mm A"
 };
 
 export {

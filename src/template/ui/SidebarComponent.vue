@@ -36,6 +36,7 @@
     import SidebarConfigItem from "./common/SidebarConfigItem";
     import {ControlHandler} from 'sethFormBuilder/template/handler/control_handler';
     import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome';
+    import {Hooks} from 'sethFormBuilder/template/components/hook_lists';
 
     export default {
         components: {SidebarConfigItem, FontAwesomeIcon},
@@ -59,17 +60,26 @@
                 // pre apply
                 this.controlInfo.decimalPlace = parseInt(this.controlInfo.decimalPlace);
 
-                // run hook here
+                // before hook here
+                Hooks.Sidebar.beforeApplyConfig.run(this.controlInfo);
 
                 eventBus.$emit(EventHandlerConstant.ON_APPLY_EDITOR_SIDEBAR, this.controlInfo);
 
-                // run hook here
+                // after hook here
+                Hooks.Sidebar.afterApplyConfig.run(this.controlInfo);
             }
         },
         created() {
             eventBus.$on(EventHandlerConstant.ACTIVATE_EDITOR_SIDEBAR, controlInfo => {
+                // before hook here
+                Hooks.Sidebar.beforeOpenConfig.run(controlInfo);
+
+                // open config
                 this.isConfig = true;
                 this.controlInfo = controlInfo;
+
+                // after hook here
+                Hooks.Sidebar.afterOpenConfig.run(this.controlInfo);
             });
         },
         mounted() {

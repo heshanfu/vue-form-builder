@@ -34,8 +34,7 @@
         }),
         mounted() {
             $(this.$el).find("input").timepicker({
-                timeFormat: "H:i",
-                show2400: true
+                timeFormat: this.control.timeFormat
             });
 
             if (this.control.isNowTimeValue) {

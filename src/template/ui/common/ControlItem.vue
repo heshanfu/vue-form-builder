@@ -81,7 +81,7 @@
                         this.$control.datepicker("option", "dateFormat", controlInfo.dateFormat);
                         break;
                     case "timepicker":
-                        this.$control.timepicker("option", "timeFormat", controlInfo.timeFormat);
+                        this.$control.data('TimePicker').options.timeFormat = controlInfo.timeFormat;
                         break;
                 }
 
@@ -92,12 +92,19 @@
             });
         },
         mounted() {
+            let self = this;
             this.$control = $(this.$el).find("input");
 
             // init special??
             if (this.control.type === 'datepicker') {
                 this.$control.datepicker({
-                    dateFormat: this.control.dateFormat
+                    dateFormat: this.control.dateFormat,
+                    beforeShow:function(input) {
+                        // read only can't choose
+                        if (self.control.readonly) {
+                            return false;
+                        }
+                    }
                 });
             } else if (this.control.type === 'timepicker') {
                 this.$control.timepicker({
@@ -141,6 +148,9 @@
             switch (this.control.type) {
                 case "datepicker":
                     this.$control.datepicker('destroy');
+                    break;
+                case "timepicker":
+                    this.$control.timepicker('destroy');
                     break;
             }
         }

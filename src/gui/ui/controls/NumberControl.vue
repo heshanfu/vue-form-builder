@@ -10,6 +10,7 @@
                        :readonly="this.control.readonly"
                        :name="control.fieldName"
                        :step="controlStep"
+                       @change="numberChange"
                        v-model="control.value" />
             </div>
         </div>
@@ -25,8 +26,10 @@
                 this.control.value = this.control.defaultValue;
             }
         },
-        watch: {
-            "control.value": function (val) {
+        methods: {
+            numberChange(e) {
+                let val = e.target.value;
+
                 if (this.control.isInteger === false) {
                     this.control.value = parseFloat(val).toFixed(this.control.decimalPlace);
                 } else {

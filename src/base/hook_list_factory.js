@@ -1,14 +1,16 @@
+import {CallbackHandler} from "sethFormBuilder/base/callback_handler";
+
 const DEFAULT_PRIORITY = 10;
 
 class HookList {
 	constructor() {
-		this._listHook = []; 
+		this._listHook = [];
   	}
 
   	reset(){
   		this._listHook = [];
   	}
-	
+
 	_getFunctions(){
 		return _.pluck(_.sortBy(this._listHook, 'priority'), 'fn');	// asc
 	}
@@ -16,7 +18,7 @@ class HookList {
 
 	_pushHook(hookItem){
 		// {
- 		//		priority: 10, 
+ 		//		priority: 10,
  		//		fn: function
 		// }
 		this._listHook.push(hookItem);
@@ -47,7 +49,7 @@ class HookList {
 	push(func, priority = DEFAULT_PRIORITY){
 	    if(_.isObject(func) ) {
 	      	return this._pushItem(func);
-	    } 
+	    }
 
 	    if(_.isFunction(func)) {
 	      	var item = {
@@ -65,7 +67,7 @@ class HookList {
 		      	};
 		    	this._pushItem(item);
 	       	});
-		} 
+		}
 	}
 
 	// run all function
@@ -73,7 +75,7 @@ class HookList {
 		var args = [];
 		if(arguments.length > 0) {
 			args = _.toArray(arguments);
-		} 
+		}
 		return CallbackHandler.run(this._getFunctions(), args);
 	}
 
@@ -83,7 +85,7 @@ class HookList {
 		var args = [];
 		if(arguments.length > 0) {
 			args = _.toArray(arguments);
-		} 
+		}
 		return CallbackHandler.runSequence(this._getFunctions(), args);
 	}
 
